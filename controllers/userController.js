@@ -92,7 +92,7 @@ module.exports = {
       if (!user) {
         return res
           .status(404)
-          .json({ message: "No user found with that ID :(" });
+          .json({ message: "No user found with this ID :(" });
       }
 
       res.json(user);
@@ -103,22 +103,23 @@ module.exports = {
   },
 
   // Remove friend
-  async removeAssignment(req, res) {
+  async removeFriend(req, res) {
     try {
-      const student = await Student.findOneAndUpdate(
-        { _id: req.params.studentId },
-        { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
-      if (!student) {
+      if (!user) {
         return res
           .status(404)
-          .json({ message: "No student found with that ID :(" });
+          .json({ message: "No user found with this ID :(" });
       }
 
-      res.json(student);
+      res.json(user);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
