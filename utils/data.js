@@ -35,7 +35,6 @@ const usernames = [
   "Zen",
   "Zendel",
   "Zenith",
-  "Zennon",
   "Zeph",
   "Zerah",
   "Zhen",
