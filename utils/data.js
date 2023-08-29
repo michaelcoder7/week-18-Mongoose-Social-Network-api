@@ -1,4 +1,4 @@
-const names = [
+const usernames = [
   "Aaran",
   "Aaren",
   "Aarez",
@@ -115,13 +115,13 @@ const possibleReactions = [
   "Keep up the good work.",
 ];
 
-const users = [];
+// const user = [];
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random full name
-const getRandomName = () => `${getRandomArrItem(names)}`;
+const getRandomUserName = () => `${getRandomArrItem(usernames)}`;
 
 // Function to generate random thoughts that we can add to the database. Includes thought reactions.
 const getRandomThoughts = (int) => {
@@ -129,7 +129,7 @@ const getRandomThoughts = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       thoughtText: getRandomArrItem(thoughtDescriptions),
-      username: getRandomArrItem(names),
+      username: getRandomArrItem(usernames),
       reactions: [...getThoughtReactions(3)],
     });
   }
@@ -145,11 +145,11 @@ const getThoughtReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reactionBody: getRandomArrItem(possibleReactions),
-      username: getRandomName(),
+      username: getRandomUserName(),
     });
   }
   return results;
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomThoughts };
+module.exports = { getRandomUserName, getRandomThoughts };
