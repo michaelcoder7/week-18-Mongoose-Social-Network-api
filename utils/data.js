@@ -114,8 +114,6 @@ const possibleReactions = [
   "Keep up the good work.",
 ];
 
-// const user = [];
-
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
